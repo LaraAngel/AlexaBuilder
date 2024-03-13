@@ -1,7 +1,5 @@
 package devices;
 
-import builder.AlexaBuilder;
-
 public class AlexaMic {
     private Integer frequency;
     private String language;
@@ -16,9 +14,9 @@ public class AlexaMic {
 
     public static class AlexaMicBuilder {
         private AlexaMic mic = new AlexaMic();
-        private AlexaBuilder parentBuilder;
+        private AlexaDevice.AlexaBuilder parentBuilder;
 
-        public AlexaMicBuilder(AlexaBuilder parentBuilder) {
+        public AlexaMicBuilder(AlexaDevice.AlexaBuilder parentBuilder) {
             this.parentBuilder = parentBuilder;
         }
 
@@ -32,7 +30,7 @@ public class AlexaMic {
             return this;
         }
 
-        public AlexaBuilder buildMic() {
+        public AlexaDevice.AlexaBuilder buildMic() {
             parentBuilder.saveMic(mic);
             return parentBuilder;
         }

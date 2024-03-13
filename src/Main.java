@@ -1,9 +1,8 @@
-import builder.AlexaBuilder;
 import devices.AlexaDevice;
 
 public class Main {
     public static void main(String[] args) {
-        AlexaDevice alexa = new AlexaBuilder()
+        AlexaDevice alexa = new AlexaDevice.AlexaBuilder()
                 .defineSpeaker()
                 .setMinHz(50)
                 .setMaxHz(20000)
