@@ -12,6 +12,12 @@ public class Main {
                 .setLanguage("English")
                 .setFrequency(1000)
                 .buildMic()
+                .defineFrenchFries()
+                .addCatsun()
+                .addMustard()
+                .addSalt()
+                .addPrice(10)
+                .buildAlexaFrenchFries()
                 .buildAlexa();
         System.out.println(alexa.toString());
     }

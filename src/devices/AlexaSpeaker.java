@@ -13,7 +13,7 @@ public class AlexaSpeaker {
                 "volume=" + volume +
                 ", minHz=" + minHz +
                 ", maxHz=" + maxHz +
-                '}';
+                "}\n";
     }
 
     public static class AlexaSpeakerBuilder extends AlexaBuilder {

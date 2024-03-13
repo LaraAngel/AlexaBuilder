@@ -11,7 +11,7 @@ public class AlexaMic {
         return "devices.AlexaMic{" +
                 "frequency=" + frequency +
                 ", language='" + language + '\'' +
-                '}';
+                "}\n";
     }
 
     public static class AlexaMicBuilder extends AlexaBuilder {
