@@ -1,29 +1,36 @@
-public class AlexaMic extends AlexaDevice{
-    private Integer minFrequency;
-    private Integer maxFrequency;
-    private String color;
+public class AlexaMic {
+    private Integer frequency;
+    private String language;
 
-    public Integer getMinFrequency() {
-        return minFrequency;
+    @Override
+    public String toString() {
+        return "AlexaMic{" +
+                "frequency=" + frequency +
+                ", language='" + language + '\'' +
+                '}';
     }
 
-    public void setMinFrequency(Integer minFrequency) {
-        this.minFrequency = minFrequency;
-    }
+    public static class AlexaMicBuilder extends AlexaBuilder {
+        private AlexaMic mic = new AlexaMic();
+        private AlexaBuilder parentBuilder;
 
-    public Integer getMaxFrequency() {
-        return maxFrequency;
-    }
+        public AlexaMicBuilder(AlexaBuilder parentBuilder) {
+            this.parentBuilder = parentBuilder;
+        }
 
-    public void setMaxFrequency(Integer maxFrequency) {
-        this.maxFrequency = maxFrequency;
-    }
+        public AlexaMicBuilder setLanguage(String lang){
+            mic.language = lang;
+            return this;
+        }
 
-    public String getColor() {
-        return color;
-    }
+        public AlexaMicBuilder setFrequency(Integer frequency){
+            mic.frequency = frequency;
+            return this;
+        }
 
-    public void setColor(String color) {
-        this.color = color;
+        public AlexaBuilder buildMic() {
+            parentBuilder.saveMic(mic);
+            return parentBuilder;
+        }
     }
 }

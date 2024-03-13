@@ -1,71 +1,38 @@
-public class AlexaSpeaker extends AlexaDevice{
+public class AlexaSpeaker {
     private Integer volume;
-    private Integer maxHz;
     private Integer minHz;
-    private Integer impedance;
+    private Integer maxHz;
 
-    public Integer getVolume(AlexaSpeaker alexaDevice) {
-        return alexaDevice.volume;
+    @Override
+    public String toString() {
+        return "AlexaSpeaker{" +
+                "volume=" + volume +
+                ", minHz=" + minHz +
+                ", maxHz=" + maxHz +
+                '}';
     }
 
-    public void setVolume(Integer volume) {
-        if (volume < 0) {
-            this.volume = 0;
-        } this.volume = volume;
-    }
+    public static class AlexaSpeakerBuilder extends AlexaBuilder {
+        private AlexaSpeaker speaker = new AlexaSpeaker();
+        private AlexaBuilder parentBuilder;
 
-    public Integer getMaxHz() {
-        return maxHz;
-    }
-
-    private void setMaxHz(Integer maxHz) {
-        this.maxHz = maxHz;
-    }
-
-    public Integer getMinHz() {
-        return minHz;
-    }
-
-    private void setMinHz(Integer minHz) {
-        if (minHz < 0) {
-            this.minHz = 0;
-        }
-        this.minHz = minHz;
-    }
-
-    public Integer getImpedance() {
-        return impedance;
-    }
-
-    private void setImpedance(Integer impedance) {
-        this.impedance = impedance;
-    }
-
-    public static class Builder extends AlexaDevice{
-        private AlexaSpeaker speaker;
-
-        public Builder() {
-            speaker = new AlexaSpeaker();
+        public AlexaSpeakerBuilder(AlexaBuilder parentBuilder) {
+            this.parentBuilder = parentBuilder;
         }
 
-        public Builder limitVolumes(Integer min, Integer max) {
-            speaker.maxHz = max;
-            speaker.minHz = min;
-            return this;
-        }
-        public Builder addImpedance(Integer impedance) {
-            speaker.impedance = impedance;
+        public AlexaSpeakerBuilder setMinHz(Integer hz){
+            speaker.minHz = hz;
             return this;
         }
 
-        public Builder addDefaultVolume(){
-            speaker.volume = 0;
+        public AlexaSpeakerBuilder setMaxHz(Integer hz){
+            speaker.maxHz = hz;
             return this;
         }
 
-        public AlexaSpeaker build(){
-            speaker.setHasSpeaker(true);
-            return speaker;
+        public AlexaBuilder buildSpeaker() {
+            parentBuilder.saveSpeaker(speaker);
+            return parentBuilder;
         }
     }
 }
