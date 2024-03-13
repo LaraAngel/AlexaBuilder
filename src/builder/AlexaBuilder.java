@@ -1,3 +1,9 @@
+package builder;
+
+import devices.AlexaDevice;
+import devices.AlexaMic;
+import devices.AlexaSpeaker;
+
 public class AlexaBuilder {
     private AlexaDevice alexa;
 
@@ -13,12 +19,12 @@ public class AlexaBuilder {
         return new AlexaMic.AlexaMicBuilder(this);
     }
 
-    protected AlexaBuilder saveSpeaker(AlexaSpeaker speaker) {
+    public AlexaBuilder saveSpeaker(AlexaSpeaker speaker) {
         alexa.setSpeaker(speaker);
         return this;
     }
 
-    protected AlexaBuilder saveMic(AlexaMic mic) {
+    public AlexaBuilder saveMic(AlexaMic mic) {
         alexa.setMic(mic);
         return this;
     }

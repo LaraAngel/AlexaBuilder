@@ -1,10 +1,14 @@
+package devices;
+
+import builder.AlexaBuilder;
+
 public class AlexaMic {
     private Integer frequency;
     private String language;
 
     @Override
     public String toString() {
-        return "AlexaMic{" +
+        return "devices.AlexaMic{" +
                 "frequency=" + frequency +
                 ", language='" + language + '\'' +
                 '}';

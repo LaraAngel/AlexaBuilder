@@ -1,3 +1,5 @@
+package devices;
+
 public class AlexaDevice {
     private AlexaSpeaker speaker = new AlexaSpeaker();
     private AlexaMic mic = new AlexaMic();
@@ -20,7 +22,7 @@ public class AlexaDevice {
 
     @Override
     public String toString() {
-        return "AlexaDevice{" +
+        return "devices.AlexaDevice{" +
                 "speaker=" + speaker.toString() +
                 ", mic=" + mic.toString() +
                 '}';

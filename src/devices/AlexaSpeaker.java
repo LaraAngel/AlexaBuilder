@@ -1,3 +1,7 @@
+package devices;
+
+import builder.AlexaBuilder;
+
 public class AlexaSpeaker {
     private Integer volume;
     private Integer minHz;
@@ -5,7 +9,7 @@ public class AlexaSpeaker {
 
     @Override
     public String toString() {
-        return "AlexaSpeaker{" +
+        return "devices.AlexaSpeaker{" +
                 "volume=" + volume +
                 ", minHz=" + minHz +
                 ", maxHz=" + maxHz +
