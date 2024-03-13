@@ -16,7 +16,7 @@ public class AlexaSpeaker {
                 '}';
     }
 
-    public static class AlexaSpeakerBuilder extends AlexaBuilder {
+    public static class AlexaSpeakerBuilder {
         private AlexaSpeaker speaker = new AlexaSpeaker();
         private AlexaBuilder parentBuilder;
 

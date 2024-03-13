@@ -14,7 +14,7 @@ public class AlexaMic {
                 '}';
     }
 
-    public static class AlexaMicBuilder extends AlexaBuilder {
+    public static class AlexaMicBuilder {
         private AlexaMic mic = new AlexaMic();
         private AlexaBuilder parentBuilder;
 
