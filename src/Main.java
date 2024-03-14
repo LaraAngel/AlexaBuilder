@@ -1,17 +1,17 @@
+import devices.AlexaDevice;
+
 public class Main {
     public static void main(String[] args) {
-
-        AlexaDevice alexaDevice = new AlexaDevice();
-        AlexaScreen alexaScreen = new AlexaScreen();
-        AlexaSpeaker alexaSpeaker = new AlexaSpeaker.Builder().limitVolumes(1,2).addDefaultVolume().build();
-
-        alexaDevice.addCapability(alexaScreen);
-        alexaDevice.addCapability(alexaSpeaker);
-        AlexaDevice ad = alexaDevice.getCapability(alexaSpeaker);
-        System.out.print(ad.getHasSpeaker());
-        System.out.print(ad.getHasBluetooth());
-        System.out.print(ad.getHasMic());
-
-        System.out.println(alexaSpeaker.getVolume((AlexaSpeaker) ad));
+        AlexaDevice alexa = new AlexaDevice.AlexaBuilder()
+                .defineSpeaker()
+                .setMinHz(50)
+                .setMaxHz(20000)
+                .buildSpeaker()
+                .defineMic()
+                .setLanguage("English")
+                .setFrequency(1000)
+                .buildMic()
+                .buildAlexa();
+        System.out.println(alexa.toString());
     }
 }
